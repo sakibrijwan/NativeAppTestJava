@@ -9,10 +9,13 @@ import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.android.AndroidElement;
 import io.appium.java_client.remote.AndroidMobileCapabilityType;
 import io.appium.java_client.remote.MobileCapabilityType;
+import manager.FileReaderManager;
 import manager.PageObjectManager;
 import org.junit.Assert;
 import org.openqa.selenium.remote.DesiredCapabilities;
+
 import pageObjects.CalculatorPageObjects;
+import dataProvider.ConfigFileReader;
 
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -26,6 +29,7 @@ public class MyStepdefs {
     AndroidDriver<AndroidElement> driver;
     PageObjectManager pageObjectManager;
     CalculatorPageObjects calc;
+    ConfigFileReader configFileReader;
 
     @Before
     public void setup() throws MalformedURLException
@@ -38,7 +42,7 @@ public class MyStepdefs {
         //File app = new File(appDir, "CoCoin.apk");
         DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "Appium");
+        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, FileReaderManager.getInstance().getConfigReader().getDeviceName());
         // capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
         capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.android.calculator2");
         capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.android.calculator2.Calculator");
