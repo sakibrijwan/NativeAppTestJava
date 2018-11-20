@@ -6,19 +6,14 @@ import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import io.appium.java_client.android.AndroidDriver;
-import io.appium.java_client.android.AndroidElement;
-import io.appium.java_client.remote.AndroidMobileCapabilityType;
-import io.appium.java_client.remote.MobileCapabilityType;
-import manager.FileReaderManager;
 import manager.PageObjectManager;
+import manager.DriverManager;
 import org.junit.Assert;
-import org.openqa.selenium.remote.DesiredCapabilities;
 
 import pageObjects.CalculatorPageObjects;
 import dataProvider.ConfigFileReader;
 
 import java.net.MalformedURLException;
-import java.net.URL;
 
 /**
  * Created by Sakib on 11/11/2018.
@@ -26,10 +21,11 @@ import java.net.URL;
 public class MyStepdefs {
 
 
-    AndroidDriver<AndroidElement> driver;
+    AndroidDriver driver;
     PageObjectManager pageObjectManager;
     CalculatorPageObjects calc;
     ConfigFileReader configFileReader;
+    DriverManager driverManager=new DriverManager();
 
     @Before
     public void setup() throws MalformedURLException
@@ -40,13 +36,9 @@ public class MyStepdefs {
         // TODO Auto-generated method stub
         //File appDir = new File("aut");
         //File app = new File(appDir, "CoCoin.apk");
-        DesiredCapabilities capabilities = new DesiredCapabilities();
 
-        capabilities.setCapability(MobileCapabilityType.DEVICE_NAME, FileReaderManager.getInstance().getConfigReader().getDeviceName());
-        // capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_PACKAGE,"com.android.calculator2");
-        capabilities.setCapability(AndroidMobileCapabilityType.APP_ACTIVITY,"com.android.calculator2.Calculator");
-        driver = new AndroidDriver(new URL("http://127.0.0.1:4723/wd/hub"), capabilities);
+        driver=driverManager.getAndroidDriver();
+
 
         pageObjectManager = new PageObjectManager(driver);
         calc = pageObjectManager.getCalculator();

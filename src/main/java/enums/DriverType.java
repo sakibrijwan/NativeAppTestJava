@@ -7,5 +7,6 @@ public enum  DriverType {
     FIREFOX,
     CHROME,
     INTERNETEXPLORER,
-    APPIUM
+    APPIUM_LOCAL_APP,
+    APPIUM_INSTALLED_APP
 }
