@@ -81,14 +81,12 @@ public class DriverManager {
                 break;
             case APPIUM_INSTALLED_APP:
                 //capabilities.setCapability(MobileCapabilityType.APP, app.getAbsolutePath());
-
-
         }
         return driver;
     }
 
     public void closeDriver() {
-        driver.close();
+        //driver.close();
         driver.quit();
     }
 

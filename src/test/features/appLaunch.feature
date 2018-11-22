@@ -6,3 +6,4 @@ Feature: Adding two numbers using Calculator App
     And I press two
     And I press equal sign
     Then Result three will appear
+    Then Clear the result

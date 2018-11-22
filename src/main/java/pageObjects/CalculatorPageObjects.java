@@ -29,32 +29,37 @@ public class CalculatorPageObjects {
     public List<WebElement> four;
 
     @AndroidFindBy(xpath = "//android.widget.Button[@text='1']")
-    public WebElement one;
+    public WebElement oneButton;
 
     @AndroidFindBy(xpath = "//android.widget.Button[@text='2']")
-    public WebElement two;
+    public WebElement twoButton;
 
     @AndroidFindBy(xpath = "//android.widget.Button[@text='+']")
-    public WebElement plus;
+    public WebElement plusButton;
 
     @AndroidFindBy(xpath = "//android.widget.Button[@text='=']")
-    public WebElement equal;
+    public WebElement equalButton;
 
 
     @AndroidFindBy(xpath="//android.widget.EditText[@text='3']")
     public WebElement verifyThree;
 
-    public void clickOne(){
-        this.one.click();
-    }
+    @AndroidFindBy(id="com.android.calculator2:id/clr")
+    public WebElement clearButton;
+
+    public void clickOne(){this.oneButton.click();}
     public void clickTwo(){
-        this.two.click();
+        this.twoButton.click();
     }
     public void clickPlus(){
-        this.plus.click();
+        this.plusButton.click();
     }
     public void clickEqual(){
-        this.equal.click();
+        this.equalButton.click();
+    }
+
+    public void clickClear(){
+        this.clearButton.click();
     }
 
     public void addTwoNumbers(){
