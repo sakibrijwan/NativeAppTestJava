@@ -8,7 +8,7 @@ import org.junit.runner.RunWith;
         features ="src/test/features",
 //        glue = "src/main/step_definitions",
         //glue = {"src/test/resources/stepDefinition"},
-//        tags="@Login",
+//        tags="@functionalTest",
         plugin = {"pretty"})
 public class RunCucumberTest {
 }

@@ -4,6 +4,7 @@ import cucumber.TestContext;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
 
+
 /**
  * Created by Sakib on 11/22/2018.
  */
@@ -27,7 +28,7 @@ public class Hooks {
  */
         }
 
-        @After
+        @After()
         public void AfterSteps() {
             testContext.getDriverManager().closeDriver();
         }
