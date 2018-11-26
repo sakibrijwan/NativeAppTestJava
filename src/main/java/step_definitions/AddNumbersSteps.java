@@ -6,9 +6,11 @@ import cucumber.api.java.en.And;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
+import manager.FileReaderManager;
 import org.junit.Assert;
 
 import pageObjects.CalculatorPageObjects;
+import testDataTypes.TestNumbers;
 
 import java.net.MalformedURLException;
 
@@ -54,7 +56,10 @@ public class AddNumbersSteps {
     @Then("^Result three will appear$")
     public void Result_three_will_appear() throws Throwable {
         Thread.sleep(2000);
+     //   TestNumbers numbers = FileReaderManager.getInstance().getJsonReader().getCustomerByName(3);
+
         //System.out.print("Number:"+calc.getText());
+       // Assert.assertEquals(calc.getText(), numbers);
         Assert.assertEquals(calc.getText(), "3");
     }
 }

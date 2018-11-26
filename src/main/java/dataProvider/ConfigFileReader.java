@@ -1,5 +1,7 @@
 package dataProvider;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
 import enums.DriverType;
 import enums.EnvironmentType;
 
@@ -55,6 +57,13 @@ public class ConfigFileReader {
         if(environmentName == null || environmentName.equalsIgnoreCase("local")) return EnvironmentType.LOCAL;
         else if(environmentName.equals("remote")) return EnvironmentType.REMOTE;
         else throw new RuntimeException("Environment Type Key value in Configuration.properties is not matched : " + environmentName);
+    }
+
+
+    public String getTestDataResourcePath(){
+        String testDataResourcePath = properties.getProperty("testDataResourcePath");
+        if(testDataResourcePath!= null) return testDataResourcePath;
+        else throw new RuntimeException("Test Data Resource Path not specified in the Configuration.properties file for the Key:testDataResourcePath");
     }
 
 }

@@ -8,10 +8,10 @@ import java.net.MalformedURLException;
 
 public class SecondFeatureSteps {
 
-    @Given("^A feature$")
-    public void A_feature() throws MalformedURLException
+    @Given("^A feature \"([^\"]*)\"$")
+    public void A_feature(String arg1) throws MalformedURLException
     {
-        System.out.print("Launched");
+        System.out.print("Testing\t"+ arg1);
     }
 
     @Then("^It will run$")
