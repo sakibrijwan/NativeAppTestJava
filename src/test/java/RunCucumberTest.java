@@ -9,6 +9,6 @@ import org.junit.runner.RunWith;
 //        glue = "src/main/step_definitions",
         //glue = {"src/test/resources/stepDefinition"},
 //        tags="@functionalTest",
-        plugin = {"pretty"})
+        plugin = {"pretty","html:target/cucumber-reports" })
 public class RunCucumberTest {
 }
