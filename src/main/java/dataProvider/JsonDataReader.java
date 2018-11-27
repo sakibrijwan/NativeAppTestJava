@@ -36,9 +36,8 @@ public class JsonDataReader {
 
     public final TestNumbers getCustomerByName(int customerNumber){
         for(TestNumbers number : numberList) {
-            if(TestNumbers.three==customerNumber) return number;
+            if(number.number==customerNumber) return number;
         }
         return null;
     }
-
 }

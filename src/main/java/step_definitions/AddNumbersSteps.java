@@ -53,13 +53,11 @@ public class AddNumbersSteps {
         calc.clickEqual();
     }
 
-    @Then("^Result three will appear$")
-    public void Result_three_will_appear() throws Throwable {
+    @Then("^Result (\\d+) will appear$")
+    public void Result_three_will_appear(String three) throws Throwable {
         Thread.sleep(2000);
-     //   TestNumbers numbers = FileReaderManager.getInstance().getJsonReader().getCustomerByName(3);
-
-        //System.out.print("Number:"+calc.getText());
-       // Assert.assertEquals(calc.getText(), numbers);
-        Assert.assertEquals(calc.getText(), "3");
+        TestNumbers numbers = FileReaderManager.getInstance().getJsonReader().getCustomerByName(3);
+        System.out.print("Three from cucumber"+three);
+        Assert.assertEquals(""+numbers.number, calc.getText());
     }
 }
